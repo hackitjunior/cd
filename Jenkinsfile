@@ -2,13 +2,14 @@
 pipeline {
 	agent any
 
+    options {
+        disableConcurrentBuilds()
+    }
+
 	stages {
 
 		stage('Build') {
-			steps {
-				echo 'Building..'
-				sh "docker --version"
-			}
+			steps { buildApp()}
 		}
 
 		stage('Test') {
@@ -23,5 +24,12 @@ pipeline {
 			}
 		}
 
+	}
+}
+
+// steps
+def buildApp() {
+	dir ('client' ) {
+		def appImage = docker.build("jenkins/myapp-client:${BUILD_NUMBER}")
 	}
 }
