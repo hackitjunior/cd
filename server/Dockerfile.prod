@@ -1,0 +1,7 @@
+FROM node:10.17.0-alpine
+WORKDIR /api
+COPY package*.json /api/
+COPY . /api/
+RUN npm install -g nodemon
+EXPOSE 8080
+CMD ["npm", "run","start"]
