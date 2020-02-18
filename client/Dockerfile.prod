@@ -1,7 +1,7 @@
 FROM nginx:alpine
 #WORKDIR /usr/share/nginx/htmls
 COPY default.conf /etc/nginx/conf.d
-COPY ./dist/client/ /usr/share/nginx/html/
+#COPY ./dist/client/ /usr/share/nginx/html/
 #RUN npm install
 #RUN npm install -g @angular/cli@8.3.20
 EXPOSE 80/tcp
